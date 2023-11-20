@@ -44,7 +44,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="New Password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:minHeight="48dp" />
 
         <EditText
@@ -54,7 +54,7 @@
             android:ems="10"
             android:gravity="center"
             android:hint="Confirm Password"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:minHeight="48dp" />
 
         <Button
@@ -64,5 +64,17 @@
             android:ems="15"
             android:text="Register and Login" />
     </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.155"
+        app:srcCompat="@drawable/mercurydrug" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

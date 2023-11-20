@@ -41,41 +41,41 @@ class LoginActivity : AppCompatActivity() {
             var val_email = etEmail.text.toString()
             var val_pass = etPass.text.toString()
 
-            var userExist = false
+            //var userExist = false
 
-            val query = db.collection("users")
-                .whereEqualTo("email", val_email).whereEqualTo("password", val_pass)
-                .get()
-                .addOnSuccessListener { documents ->
-                    for (document in documents) {
-                        Log.d("ZZZZZZZZZ", "${document.id} => ${document.data}")
-                    }
-                    if(documents!=null){
-                        userExist = true
-                    }
-
-                    nAuth.createUserWithEmailAndPassword(val_email, val_pass).addOnCompleteListener(this){ task ->
-                        if (task.isSuccessful) {
-                            // Sign in success, update UI with the signed-in user's information
-                            Toast.makeText(baseContext, "new user created", Toast.LENGTH_SHORT).show()
-                            updateUI(null)
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w("ZZZZZFirebase", "createUserWithEmail:failure", task.exception)
-                            Toast.makeText(
-                                baseContext,
-                                "Authentication failed.",
-                                Toast.LENGTH_SHORT,
-                            ).show()
-                            updateUI(null)
-                        }
-                    }
-
-
-                }
-                .addOnFailureListener {
-                    Log.w("ZZZZZZZZZ", "Error getting documents: ")
-                }
+//            val query = db.collection("users")
+//                .whereEqualTo("email", val_email).whereEqualTo("password", val_pass)
+//                .get()
+//                .addOnSuccessListener { documents ->
+//                    for (document in documents) {
+//                        Log.d("ZZZZZZZZZ", "${document.id} => ${document.data}")
+//                    }
+//                    if(documents!=null){
+//                        userExist = true
+//                    }
+//
+//                    nAuth.createUserWithEmailAndPassword(val_email, val_pass).addOnCompleteListener(this){ task ->
+//                        if (task.isSuccessful) {
+//                            // Sign in success, update UI with the signed-in user's information
+//                            Toast.makeText(baseContext, "new user created", Toast.LENGTH_SHORT).show()
+//                            updateUI(null)
+//                        } else {
+//                            // If sign in fails, display a message to the user.
+//                            Log.w("ZZZZZFirebase", "createUserWithEmail:failure", task.exception)
+//                            Toast.makeText(
+//                                baseContext,
+//                                "Authentication failed.",
+//                                Toast.LENGTH_SHORT,
+//                            ).show()
+//                            updateUI(null)
+//                        }
+//                    }
+//
+//
+//                }
+//                .addOnFailureListener {
+//                    Log.w("ZZZZZZZZZ", "Error getting documents: ")
+//                }
 
             if(val_email.equals("")||val_pass.equals("")){
                 Toast.makeText(this, "Required fields", Toast.LENGTH_SHORT)
