@@ -61,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
                     if(dc.type == DocumentChange.Type.ADDED){
                         prodArrayList.add(dc.document.toObject(CardData::class.java))
-                        Log.d("Firestore Error", "$prodArrayList")
+//                        Log.d("Firestore Error", "$prodArrayList")
                     }
                 }
 
