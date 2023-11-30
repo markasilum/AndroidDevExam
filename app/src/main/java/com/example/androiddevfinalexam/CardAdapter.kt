@@ -25,11 +25,25 @@ class CardAdapter(private val cardDataList: List<CardData>) :
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val cardData = cardDataList[position]
 
+        var priceData = cardData.price.toString().toDouble()
+//        var discount = cardData.discount.toString().toDouble()
+
         // Bind data to views
 //        holder.imageView.
         holder.textViewName.text = cardData.name
         holder.textViewDesc.text = cardData.description
-        holder.textViewPrice.text = "₱ "+cardData.price.toString()
+            // MARK ASILUM
+        if(cardData.discount==null){
+            holder.textViewPrice.text = "₱ "+cardData.price.toString()
+        }else{
+            var discount = cardData.discount.toString().toDouble()
+            var discAmount = priceData*discount
+            var discPrice = priceData-discAmount
+            var discAmountFormat = String.format("%.2f", discAmount).toDouble()
+            var discPriceFormat = String.format("%.2f", discPrice).toDouble()
+
+            holder.textViewPrice.text = "₱ "+discPriceFormat.toString()+" (₱"+discAmountFormat+")"
+        }
 
         loadImageFromUrl(cardData.photoUrl, holder.imageView)
 
